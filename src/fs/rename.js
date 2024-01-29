@@ -12,15 +12,15 @@ const rename = async () => {
     if (err) {
       throw new Error("FS operation failed");
     }
-  });
-  fs.stat(pathToProperFile, (err) => {
-    if (!err) {
-      throw new Error("FS operation failed");
-    }
-  });
-  fs.rename(pathToWrongFile, pathToProperFile, (err) => {
-    if (err) throw err;
-    console.log("Rename complete!");
+    fs.stat(pathToProperFile, (err) => {
+      if (!err) {
+        throw new Error("FS operation failed");
+      }
+      fs.rename(pathToWrongFile, pathToProperFile, (err) => {
+        if (err) throw err;
+        console.log("Rename complete!");
+      });
+    });
   });
 };
 
